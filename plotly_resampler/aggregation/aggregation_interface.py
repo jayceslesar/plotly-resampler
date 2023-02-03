@@ -4,7 +4,7 @@ __author__ = "Jonas Van Der Donckt"
 
 import re
 from abc import ABC, abstractmethod
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 
 import numpy as np
 import pandas as pd
@@ -17,7 +17,7 @@ class AbstractSeriesAggregator(ABC):
         self,
         interleave_gaps: bool = True,
         nan_position: str = "end",
-        dtype_regex_list: List[str] = None,
+        dtype_regex_list: Optional[List[str]] = None,
     ):
         """Constructor of AbstractSeriesAggregator.
 

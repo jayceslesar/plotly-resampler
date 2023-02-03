@@ -347,7 +347,7 @@ class AbstractFigureAggregator(BaseFigure, ABC):
         figure: dict,
         start: Optional[Union[float, str]] = None,
         stop: Optional[Union[float, str]] = None,
-        xaxis_filter: str = None,
+        xaxis_filter: Optional[str] = None,
         updated_trace_indices: Optional[List[int]] = None,
     ) -> List[int]:
         """Check and update the traces within the figure dict.
@@ -590,10 +590,10 @@ class AbstractFigureAggregator(BaseFigure, ABC):
     def _parse_get_trace_props(
         self,
         trace: BaseTraceType,
-        hf_x: Iterable = None,
-        hf_y: Iterable = None,
-        hf_text: Iterable = None,
-        hf_hovertext: Iterable = None,
+        hf_x: Optional[Iterable] = None,
+        hf_y: Optional[Iterable] = None,
+        hf_text: Optional[Iterable] = None,
+        hf_hovertext: Optional[Iterable] = None,
         check_nans: bool = True,
     ) -> _hf_data_container:
         """Parse and capture the possibly high-frequency trace-props in a datacontainer.
@@ -842,14 +842,14 @@ class AbstractFigureAggregator(BaseFigure, ABC):
     def add_trace(
         self,
         trace: Union[BaseTraceType, dict],
-        max_n_samples: int = None,
-        downsampler: AbstractSeriesAggregator = None,
+        max_n_samples: Optional[int] = None,
+        downsampler: Optional[AbstractSeriesAggregator] = None,
         limit_to_view: bool = False,
         # Use these if you want some speedups (and are working with really large data)
-        hf_x: Iterable = None,
-        hf_y: Iterable = None,
-        hf_text: Union[str, Iterable] = None,
-        hf_hovertext: Union[str, Iterable] = None,
+        hf_x: Optional[Iterable] = None,
+        hf_y: Optional[Iterable] = None,
+        hf_text: Optional[Union[str, Iterable]] = None,
+        hf_hovertext: Optional[Union[str, Iterable]] = None,
         check_nans: bool = True,
         **trace_kwargs,
     ):
