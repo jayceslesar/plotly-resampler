@@ -53,6 +53,9 @@ kaleido = "0.2.1"
 ruff = "^0.0.173"
 black = "^22.6.0"
 isort = "^5.10.1"
+mypy = "^0.991"
+
+
 # yep = "^0.4"  # c code profiling
 
 # Linting
