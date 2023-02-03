@@ -28,7 +28,7 @@ from plotly.basedatatypes import BaseFigure, BaseTraceType
 from ..aggregation import AbstractSeriesAggregator, EfficientLTTB
 from .utils import round_number_str, round_td_str
 
-_hf_data_container = namedtuple("DataContainer", ["x", "y", "text", "hovertext"])
+_hf_data_container = namedtuple("_hf_data_container", ["x", "y", "text", "hovertext"])
 
 
 class AbstractFigureAggregator(BaseFigure, ABC):
@@ -590,8 +590,8 @@ class AbstractFigureAggregator(BaseFigure, ABC):
     def _parse_get_trace_props(
         self,
         trace: BaseTraceType,
-        hf_x: Optional[Iterable] = None,
-        hf_y: Optional[Iterable] = None,
+        hf_x: Optional[Union[Iterable, np.ndarray]] = None,
+        hf_y: Optional[Union[Iterable, np.ndarray]] = None,
         hf_text: Optional[Iterable] = None,
         hf_hovertext: Optional[Iterable] = None,
         check_nans: bool = True,

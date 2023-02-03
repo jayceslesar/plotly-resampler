@@ -1,6 +1,7 @@
 """Utility functions for the figure_resampler submodule."""
 
 import math
+from typing import Optional
 
 import pandas as pd
 from plotly.basedatatypes import BaseFigure
@@ -150,7 +151,7 @@ def timedelta_to_str(td: pd.Timedelta) -> str:
     return out_str
 
 
-def round_td_str(td: pd.Timedelta) -> str:
+def round_td_str(td: pd.Timedelta) -> Optional[str]:
     """Round a timedelta to the nearest unit and convert to a string.
 
     .. seealso::
@@ -159,6 +160,8 @@ def round_td_str(td: pd.Timedelta) -> str:
     for t_s in ("D", "H", "min", "s", "ms", "us", "ns"):
         if td > 0.95 * pd.Timedelta(f"1{t_s}"):
             return timedelta_to_str(td.round(t_s))
+
+    return None
 
 
 def round_number_str(number: float) -> str:
